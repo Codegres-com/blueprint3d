@@ -243,7 +243,7 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
     handleWindowResize();
 
     initItems();
-
+    initUpload();
     setCurrentState(scope.states.DEFAULT);
   }
 
@@ -336,6 +336,25 @@ var SideMenu = function(blueprint3d, floorplanControls, modalEffects) {
 
       blueprint3d.model.scene.addItem(itemType, modelUrl, metadata);
       setCurrentState(scope.states.DEFAULT);
+    });
+  }
+
+  function initUpload() {
+    $("#add-item-upload").click(function(){
+      $("#add-item-file").click();
+    });
+
+    $("#add-item-file").change(function(evt){
+      var files = evt.target.files;
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        var loader = new THREE.OBJLoader();
+        var object = loader.parse(event.target.result);
+        var item_name = files[0].name.split('.')[0];
+        blueprint3d.model.scene.addLoadedItem(object, item_name);
+        setCurrentState(scope.states.DEFAULT);
+      };
+      reader.readAsText(files[0]);
     });
   }
 

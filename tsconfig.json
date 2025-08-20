@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "declaration": true,
+    "sourceMap": true,
+    "removeComments": false
+  },
+  "files": [
+    "src/blueprint3d.ts"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "lib"
+  ]
+}

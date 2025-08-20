@@ -139,5 +139,16 @@ module BP3D.Model {
         undefined // TODO_Ekki 
       );
     }
+
+    public addLoadedItem(object: THREE.Object3D, name: string) {
+      // Create a new OnFloorItem
+      var item = new Items.OnFloorItem(this.model, { itemName: name, resizable: true }, object);
+
+      // Add the item to the scene
+      this.items.push(item);
+      this.add(item);
+      item.initObject();
+      this.itemLoadedCallbacks.fire(item);
+    }
   }
 }

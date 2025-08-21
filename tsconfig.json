@@ -3,13 +3,10 @@
     "target": "es5",
     "declaration": true,
     "sourceMap": true,
-    "removeComments": false
+    "removeComments": false,
+    "outFile": "dist/blueprint3d.js"
   },
   "files": [
     "src/blueprint3d.ts"
-  ],
-  "exclude": [
-    "**/*.d.ts",
-    "lib"
   ]
 }

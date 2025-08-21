@@ -26,15 +26,8 @@ module.exports = function (grunt) {
   }
 
   configuration.typescript = {
-    options: {
-      target: "es5",
-      declaration: true,
-      sourceMap: true,
-      removeComments: false,
-      out: globalConfig.outDir + "/" + globalConfig.moduleName + ".js"
-    },
     blueprint3d: {
-        src: globalConfig.sources
+        tsconfig: './tsconfig.json'
     }
   };
 

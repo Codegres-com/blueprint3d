@@ -141,8 +141,10 @@ module BP3D.Model {
     }
 
     public addLoadedItem(object: THREE.Object3D, name: string) {
+      console.log("Adding loaded item: " + name);
+      var mesh = <THREE.Mesh>object.children[0];
       // Create a new OnFloorItem
-      var item = new Items.OnFloorItem(this.model, { itemName: name, resizable: true }, object);
+      var item = new Items.OnFloorItem(this.model, { itemName: name, resizable: true }, mesh.geometry, mesh.material, new THREE.Vector3(), 0, new THREE.Vector3(1,1,1));
 
       // Add the item to the scene
       this.items.push(item);
